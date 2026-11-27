@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a class="hero-link" href={href}>
+  <slot />
+  <svg viewBox="0 0 156 8" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M1 6C50 6 63 1 91 2C111 3 123 5 151 2" />
+  </svg>
+</a>

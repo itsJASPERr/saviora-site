@@ -1,0 +1,36 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+import Contour from '../components/Contour.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
+import EditorialLink from '../components/EditorialLink.astro';
+import { sitePath } from '../site';
+
+const description = 'Hago instrumentos y objetos ceremoniales a mano. La forma y el material le dan a cada pieza su carácter.';
+const work = [
+  { title: 'Instrumentos', description: 'Piezas para tocar y explorar el sonido.' },
+  { title: 'Objetos ceremoniales', description: 'Piezas de uso ceremonial hechas a mano.' },
+  { title: 'Procesos', description: 'Materiales, herramientas y maneras de hacer.' },
+];
+---
+
+<SiteLayout page="taller" title="Taller · Saviora" description={description}>
+  <section class="workshop-hero frame" aria-labelledby="taller-titulo">
+    <img class="workshop-photo" src={sitePath('manos-taller.webp')}
+      alt="Manos trabajando una pieza de madera en un taller" width="627" height="627" fetchpriority="high" />
+    <div class="editorial-copy">
+      <h1 id="taller-titulo" class="editorial-title">La materia también suena.</h1>
+      <p>{description}</p>
+      <EditorialLink href="#el-taller">Conocé el taller</EditorialLink>
+    </div>
+  </section>
+  <Contour />
+  <section class="workshop-work" id="el-taller" tabindex="-1" aria-label="Trabajo de taller">
+    <div class="frame workshop-list">
+      {work.map(({ title, description }) => (
+        <section><h2>{title}</h2><p>{description}</p></section>
+      ))}
+    </div>
+  </section>
+  <EditorialFooter slot="footer" id="intercambios" title="Intercambios de taller"
+    description="Conversaciones sobre piezas y procesos." flat />
+</SiteLayout>

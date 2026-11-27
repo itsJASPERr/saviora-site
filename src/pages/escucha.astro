@@ -1,0 +1,42 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+import Contour from '../components/Contour.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
+import EditorialLink from '../components/EditorialLink.astro';
+import Ripple from '../components/Ripple.astro';
+import { sitePath } from '../site';
+
+const description = 'Música, instrumentos y sesiones de sonido.';
+const forms = [
+  { title: 'Música', description: 'Música y exploración sonora en distintos formatos.' },
+  { title: 'Sesiones', description: 'Sesiones para prestar atención a la resonancia y al silencio entre sonidos.' },
+  { title: 'Instrumentos', description: 'Instrumentos hechos a mano para tocar y explorar el sonido.' },
+];
+---
+
+<SiteLayout page="escucha" title="Escucha · Saviora" description={description}>
+  <section class="sound-hero landscape-hero" aria-labelledby="escucha-titulo">
+    <img class="landscape-photo" src={sitePath('ondas-en-el-agua.webp')} alt="" width="627" height="627" fetchpriority="high" />
+    <div class="editorial-copy frame">
+      <h1 id="escucha-titulo" class="editorial-title">Volver a escuchar.</h1>
+      <p>{description}</p>
+      <EditorialLink href="#formas-de-escucha">Explorá el sonido</EditorialLink>
+    </div>
+  </section>
+  <Contour />
+  <section class="sound-work" id="formas-de-escucha" tabindex="-1" aria-labelledby="formas-titulo">
+    <div class="section-grid frame">
+      <div class="editorial-section-title">
+        <h2 id="formas-titulo">Formas de escucha</h2>
+        <Ripple />
+      </div>
+      <div class="sound-list">
+        {forms.map(({ title, description }) => (
+          <section><h3>{title}</h3><p>{description}</p></section>
+        ))}
+      </div>
+    </div>
+  </section>
+  <EditorialFooter slot="footer" id="colaboraciones" title="Colaboraciones sonoras"
+    description="Música, escucha y experiencias compartidas." />
+</SiteLayout>

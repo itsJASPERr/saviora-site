@@ -1,0 +1,49 @@
+---
+import { navigation, sitePath, type SitePage } from '../site';
+import '../styles/estudio.css';
+import '../styles/editorial.css';
+
+interface Props {
+  page: SitePage;
+  title: string;
+  description: string;
+}
+
+const { page, title, description } = Astro.props;
+const dawn = sitePath('dawn.svg');
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#342239" />
+    <link rel="icon" type="image/svg+xml" href={dawn} />
+    <title>{title}</title>
+  </head>
+  <body class:list={['site', 'site--' + page]} id="inicio">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="site-header-inner frame">
+        <a class="brand" href={sitePath()}>
+          <svg viewBox="0 0 72 72" aria-hidden="true" focusable="false">
+            <path d="M51 17C42 9 24 12 14 24 1 41 12 62 33 63c17 1 30-11 31-24" />
+            <path d="M47 24c-7-6-19-4-25 4-8 10-2 25 11 26 12 1 22-7 22-17" />
+            <path d="M43 31c-4-4-10-4-14 1-4 5-2 12 5 14 6 1 11-4 11-9" />
+            <circle cx="61" cy="20" r="4.15" />
+          </svg>
+          Saviora
+        </a>
+        <nav aria-label="Navegación principal">
+          {navigation.map(({ id, label, path }) => (
+            <a href={sitePath(path)} aria-current={id === page ? 'page' : undefined}>{label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="contenido" tabindex="-1"><slot /></main>
+    <slot name="footer" />
+  </body>
+</html>

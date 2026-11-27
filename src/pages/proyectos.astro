@@ -1,0 +1,44 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+import Contour from '../components/Contour.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
+import EditorialLink from '../components/EditorialLink.astro';
+import Ripple from '../components/Ripple.astro';
+import { sitePath } from '../site';
+
+const description = 'Diseño sistemas digitales y colaboro con equipos y comunidades en proyectos de regeneración.';
+const work = [
+  { id: 'regeneracion', title: 'Regeneración', description: 'Proyectos de cuidado del territorio.' },
+  { id: 'sistemas', title: 'Sistemas digitales', description: 'Herramientas para el trabajo cotidiano.' },
+  { id: 'colaboraciones', title: 'Colaboraciones', description: 'Trabajo compartido con equipos y comunidades.' },
+];
+---
+
+<SiteLayout page="proyectos" title="Proyectos · Saviora" description={description}>
+  <section class="projects-hero landscape-hero" aria-labelledby="proyectos-titulo">
+    <img class="landscape-photo" src={sitePath('valle-al-amanecer.webp')} alt="" width="627" height="627" fetchpriority="high" />
+    <div class="frame">
+      <div class="editorial-copy">
+        <h1 id="proyectos-titulo" class="editorial-title">Diseñar para <span>sostener lo vivo.</span></h1>
+        <p>{description}</p>
+        <EditorialLink href="#lineas-de-trabajo">Ver las líneas de trabajo</EditorialLink>
+      </div>
+    </div>
+  </section>
+  <Contour />
+  <section class="projects-work" id="lineas-de-trabajo" tabindex="-1" aria-labelledby="lineas-titulo">
+    <div class="section-grid frame">
+      <div class="editorial-section-title">
+        <h2 id="lineas-titulo">Líneas de trabajo</h2>
+        <Ripple />
+      </div>
+      <div class="projects-list">
+        {work.map(({ id, title, description }) => (
+          <section id={id} tabindex="-1"><h3>{title}</h3><p>{description}</p></section>
+        ))}
+      </div>
+    </div>
+  </section>
+  <EditorialFooter slot="footer" id="proyectos-compartidos" title="Proyectos compartidos"
+    description="Tecnología, organización y cuidado del territorio." />
+</SiteLayout>

@@ -1,0 +1,24 @@
+---
+import Contour from './Contour.astro';
+import Ripple from './Ripple.astro';
+
+interface Props {
+  id?: string;
+  title: string;
+  description: string;
+  flat?: boolean;
+}
+
+const { id, title, description, flat = false } = Astro.props;
+---
+
+<footer class:list={['site-footer', { 'site-footer--flat': flat }]} id={id} tabindex={id ? -1 : undefined} aria-labelledby="pie-titulo">
+  {!flat && <Contour shape="bank" />}
+  <div class="frame">
+    {flat && <Ripple />}
+    <div class="footer-content">
+      <h2 id="pie-titulo">{title}</h2>
+      <p>{description}</p>
+    </div>
+  </div>
+</footer>

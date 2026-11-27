@@ -1,0 +1,38 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+import Contour from '../components/Contour.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
+import EditorialLink from '../components/EditorialLink.astro';
+import Ripple from '../components/Ripple.astro';
+import { sitePath } from '../site';
+
+const description = 'Apuntes sobre sonido, oficios, sistemas y regeneración.';
+---
+
+<SiteLayout page="cuaderno" title="Cuaderno · Saviora" description={description}>
+  <section class="journal-intro frame" aria-labelledby="cuaderno-titulo">
+    <h1 id="cuaderno-titulo" class="editorial-title">Cuaderno de una práctica viva.</h1>
+    <div><p>{description}</p><Ripple /></div>
+  </section>
+  <section class="journal-feature" aria-labelledby="materia-titulo">
+    <svg class="clip-definition" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs><clipPath id="journal-crop" clipPathUnits="objectBoundingBox">
+        <path d="M0 0H.91C.88 .21 .99 .27 .98 .48C.97 .69 .85 .74 .89 1H0Z" />
+      </clipPath></defs>
+    </svg>
+    <img class="journal-photo" src={sitePath('anillos-de-madera.webp')}
+      alt="Vetas y anillos de crecimiento en una pieza de madera" width="627" height="627" />
+    <div class="editorial-copy journal-copy">
+      <h2 id="materia-titulo">Tiempo y materia</h2>
+      <p>Lo que la madera registra y lo que aprendemos al trabajarla.</p>
+      <EditorialLink href="#temas">Más temas del cuaderno</EditorialLink>
+    </div>
+  </section>
+  <Contour shape="journal" />
+  <section class="journal-notes section-grid frame" id="temas" tabindex="-1" aria-labelledby="territorio-titulo">
+    <h2 id="territorio-titulo">Escucha y territorio</h2>
+    <p>Preguntas sobre cómo escuchamos a los lugares y a quienes los habitan.</p>
+  </section>
+  <EditorialFooter slot="footer" id="sobre-el-cuaderno" title="Sobre el cuaderno"
+    description="Un espacio para registrar procesos y compartir preguntas." />
+</SiteLayout>

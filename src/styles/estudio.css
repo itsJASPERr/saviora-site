@@ -67,6 +67,9 @@ section[id], footer[id] { scroll-margin-block-start: var(--space-24); }
 .site-header {
   position: relative;
   z-index: 2;
+}
+
+.site-header-inner {
   min-height: 4.5rem;
   padding-block: var(--space-16);
   display: flex;
@@ -172,11 +175,11 @@ section[id], footer[id] { scroll-margin-block-start: var(--space-24); }
   width: 100%;
   height: var(--space-8);
   fill: none;
-  stroke: var(--peach);
+  stroke: var(--link-ink, var(--peach));
   stroke-linecap: round;
 }
 
-.hero-link:hover { color: var(--peach); }
+.hero-link:hover { color: var(--link-ink, var(--peach)); }
 
 .hero-edge {
   position: relative;
@@ -187,11 +190,11 @@ section[id], footer[id] { scroll-margin-block-start: var(--space-24); }
   pointer-events: none;
 }
 
-.edge-fill { fill: var(--paper); }
+.edge-fill { fill: var(--coast-fill, var(--paper)); }
 
 .edge-line {
   fill: none;
-  stroke: var(--peach);
+  stroke: var(--coast-ink, var(--peach));
   stroke-linecap: round;
   opacity: .65;
   vector-effect: non-scaling-stroke;
@@ -255,6 +258,14 @@ section[id], footer[id] { scroll-margin-block-start: var(--space-24); }
   letter-spacing: -.015em;
 }
 
+.practices-list h3 a {
+  text-decoration-color: var(--sap);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .24em;
+}
+
+.practices-list h3 a:hover { color: var(--sap); }
+
 .practices-list p {
   max-width: 25ch;
   margin-block-start: var(--space-8);
@@ -262,6 +273,7 @@ section[id], footer[id] { scroll-margin-block-start: var(--space-24); }
 
 .site-footer {
   position: relative;
+  background: var(--sap);
   color: var(--paper);
 }
 

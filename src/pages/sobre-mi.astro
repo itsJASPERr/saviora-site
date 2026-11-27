@@ -1,0 +1,35 @@
+---
+import SiteLayout from '../components/SiteLayout.astro';
+import Contour from '../components/Contour.astro';
+import EditorialFooter from '../components/EditorialFooter.astro';
+import EditorialLink from '../components/EditorialLink.astro';
+import Ripple from '../components/Ripple.astro';
+import { sitePath } from '../site';
+
+const description = 'Soy Jasper Meyer. Hago música, construyo instrumentos y diseño herramientas digitales para proyectos y comunidades.';
+---
+
+<SiteLayout page="sobre-mi" title="Sobre mí · Saviora" description={description}>
+  <section class="about-hero frame" aria-labelledby="jasper-titulo">
+    <div class="editorial-copy">
+      <h1 id="jasper-titulo" class="editorial-title">Soy Jasper Meyer.</h1>
+      <p>Hago música, construyo instrumentos y diseño herramientas digitales para proyectos y comunidades.</p>
+      <p>La voz, el ritmo y el silencio me llevaron a acompañar espacios de escucha. El trabajo con la madera y la participación en proyectos de regeneración me enseñaron a prestar atención a los materiales, los vínculos y los tiempos de cada lugar.</p>
+      <Ripple />
+    </div>
+    <img class="about-portrait" src={sitePath('jasper-meyer.webp')}
+      alt="Jasper Meyer con los ojos cerrados y una guitarra entre el follaje" width="533" height="947" fetchpriority="high" />
+  </section>
+  <Contour />
+  <section class="about-work" aria-labelledby="soma-titulo">
+    <div class="section-grid frame">
+      <h2 id="soma-titulo">Música, círculos e integración</h2>
+      <div class="editorial-copy">
+        <p>En Soma Consciente comparto prácticas de sonido y círculos de palabra. Me interesa que lo que vivimos en un encuentro pueda seguir en nuestras conversaciones, nuestros vínculos y las decisiones de todos los días.</p>
+        <EditorialLink href="https://soma-consciente.com/equipo/#jasper">Mi perfil en Soma Consciente</EditorialLink>
+      </div>
+    </div>
+  </section>
+  <EditorialFooter slot="footer" id="colaboraciones" title="Colaboraciones"
+    description="Proyectos compartidos entre sonido, oficio y tecnología." />
+</SiteLayout>

@@ -1,0 +1,304 @@
+.site {
+  --deep-plum: #2B1C30;
+  --header-ink: var(--plum);
+  --header-background: var(--paper);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100svh;
+  background: var(--paper);
+}
+
+.site main { min-width: 0; }
+
+.site--estudio,
+.site--escucha {
+  --header-ink: var(--paper);
+  --header-background: var(--plum);
+}
+
+.site--estudio { background: var(--plum); }
+.site--escucha { --coast-fill: var(--deep-plum); background: var(--deep-plum); }
+.site--proyectos { --header-ink: var(--paper); --header-background: var(--sap); background: var(--sap); }
+.site--taller { --coast-fill: var(--sap); --coast-ink: #667A65; }
+.site--sobre-mi { --coast-fill: var(--plum); --coast-ink: var(--copper); }
+
+.site-header { color: var(--header-ink); }
+
+.brand svg { fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 3.4; }
+.brand svg circle { fill: var(--brand-sun, var(--copper)); stroke: none; }
+.site--estudio .brand, .site--escucha .brand, .site--proyectos .brand { --brand-sun: var(--peach); }
+
+.site-header nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--brand-sun, currentColor);
+  text-decoration-thickness: 1px;
+}
+
+.editorial-copy {
+  display: grid;
+  justify-items: start;
+  align-content: center;
+  gap: var(--space-24);
+}
+
+.editorial-title {
+  font-size: clamp(2.75rem, 6.2vw, 4.9rem);
+  line-height: .98;
+  letter-spacing: -.047em;
+}
+
+.editorial-copy p { max-width: 41ch; }
+.editorial-copy h2, .editorial-section-title h2, .about-work h2 {
+  font-size: clamp(1.85rem, 3.65vw, 2.85rem);
+  line-height: 1.07;
+  letter-spacing: -.024em;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .73fr) minmax(0, 1.27fr);
+  align-items: start;
+  gap: var(--space-48);
+}
+
+.editorial-section-title {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-24);
+}
+
+.site .practice-ripple { stroke: var(--ripple-ink, var(--sap)); }
+.site .practice-ripple circle { fill: var(--ripple-dot, var(--copper)); }
+.site-footer--flat .practice-ripple {
+  --ripple-ink: var(--peach);
+  --ripple-dot: var(--peach);
+  width: 7.5rem;
+}
+
+.workshop-hero {
+  --link-ink: var(--sap);
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  align-items: center;
+  gap: var(--space-48);
+  padding-block: var(--space-16) calc(var(--space-48) + 2.5rem);
+}
+
+.workshop-hero h1 {
+  max-width: 12ch;
+  font-size: clamp(2.75rem, 5.75vw, 4.8rem);
+}
+
+.workshop-photo {
+  display: block;
+  width: 100%;
+  height: clamp(22rem, 42vw, 31rem);
+  object-fit: cover;
+  object-position: center 52%;
+  border-radius: 49% 51% 42% 58% / 34% 36% 20% 18%;
+}
+
+.site--estudio main,
+.site--taller main,
+.site--proyectos main,
+.site--sobre-mi main,
+.site--estudio .intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.site--estudio .intro,
+.site--estudio .practices,
+.projects-work,
+.about-work { flex: 1; }
+
+.workshop-work {
+  flex: 1;
+  padding-block: var(--space-24) var(--space-48);
+  background: var(--sap);
+  color: var(--paper);
+}
+
+.workshop-list, .sound-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-48);
+}
+
+.workshop-list section:nth-child(2) { padding-block-start: var(--space-24); }
+.workshop-list section:nth-child(3) { padding-block-start: var(--space-8); }
+.workshop-list h2, .sound-list h3, .projects-list h3, .journal-notes h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+  line-height: 1.13;
+  letter-spacing: -.015em;
+}
+
+.workshop-list h2 { color: var(--peach); }
+.workshop-list p, .sound-list p { margin-block-start: var(--space-8); max-width: 28ch; }
+
+.landscape-hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  color: var(--paper);
+}
+
+.landscape-photo, .landscape-hero::before {
+  position: absolute;
+  inset: -4.5rem 0 0;
+  width: 100%;
+  height: calc(100% + 4.5rem);
+}
+
+.landscape-photo { object-fit: cover; z-index: -2; }
+.landscape-hero::before { content: ""; z-index: -1; }
+
+.sound-hero {
+  min-height: clamp(26rem, 48vw, 36rem);
+  align-items: center;
+  padding-block: var(--space-16) calc(var(--space-48) + 2.5rem);
+}
+
+.sound-hero .landscape-photo { object-position: center 62%; }
+.sound-hero::before {
+  background:
+    linear-gradient(180deg, #342239 0%, #34223940 22%, #3422390f 62%, #34223942 100%),
+    linear-gradient(90deg, #34223982, #3422399a 47%, #34223915);
+}
+
+.sound-hero .editorial-copy { justify-items: center; text-align: center; }
+.sound-work {
+  --ripple-ink: var(--peach);
+  --ripple-dot: var(--peach);
+  padding-block: var(--space-24) calc(var(--space-48) + var(--footer-edge-height) / 2);
+  color: var(--paper);
+}
+
+.sound-work h2 { color: var(--peach); }
+.sound-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-24); }
+.sound-list section:nth-child(2) { padding-block-start: var(--space-16); }
+
+.projects-hero {
+  min-height: clamp(29rem, 52vw, 38rem);
+  align-items: end;
+  padding-block: var(--space-48) calc(var(--space-48) * 2);
+}
+
+.projects-hero .landscape-photo { object-position: center 27%; }
+.projects-hero::before {
+  background:
+    linear-gradient(180deg, #26382be0 0%, #354a3850 18%, #354a3800 35%, #354a3800 57%, #24382bb5 100%),
+    linear-gradient(90deg, #25382bc0, #273b2e80 37%, #273b2e06 76%);
+}
+
+.projects-hero h1 span { display: block; color: var(--peach); }
+.projects-work {
+  padding-block: var(--space-24) calc(var(--space-48) + var(--footer-edge-height) / 2);
+  background: var(--paper);
+}
+
+.projects-list { display: grid; gap: var(--space-16); }
+.projects-list section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-16);
+}
+
+.journal-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+  align-items: end;
+  gap: var(--space-48);
+  padding-block: var(--space-48);
+}
+
+.journal-intro h1 { max-width: 13ch; }
+.journal-intro p { max-width: 30ch; }
+.journal-intro .practice-ripple { display: block; width: 8.25rem; margin-top: var(--space-24); }
+.journal-feature {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  background: var(--plum);
+  color: var(--paper);
+}
+
+.clip-definition { position: absolute; }
+.journal-photo {
+  display: block;
+  width: 100%;
+  height: clamp(22rem, 36vw, 29rem);
+  object-fit: cover;
+  object-position: center 43%;
+  clip-path: url(#journal-crop);
+}
+
+.journal-copy { padding: var(--space-24) var(--gutter) var(--space-48) var(--space-24); gap: var(--space-16); }
+.journal-copy h2 { color: var(--peach); }
+.journal-edge { --hero-edge-height: clamp(2rem, 7vw, 4.375rem); }
+.journal-notes { padding-block: var(--space-48) calc(var(--space-48) + var(--footer-edge-height) / 2); }
+.journal-notes p { max-width: 48ch; }
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+  align-items: center;
+  gap: var(--space-48);
+  padding-block: var(--space-24) calc(var(--space-48) * 2);
+}
+
+.about-hero h1 { max-width: 10ch; }
+.about-portrait {
+  justify-self: end;
+  display: block;
+  width: min(100%, 30rem);
+  height: clamp(26rem, 48vw, 35rem);
+  object-fit: cover;
+  object-position: center 27%;
+  border-radius: 48% 52% 42% 58% / 28% 34% 17% 21%;
+}
+
+.about-work {
+  padding-block: var(--space-24) calc(var(--space-48) + var(--footer-edge-height) / 2);
+  background: var(--plum);
+  color: var(--paper);
+}
+
+.about-work h2 { color: var(--peach); }
+
+@media (max-width: 48rem) {
+  .site-header-inner { align-items: start; }
+  .site-header nav { row-gap: 0; }
+  .section-grid { grid-template-columns: 1fr; gap: var(--space-24); }
+  .editorial-section-title { gap: var(--space-16); }
+  .workshop-hero, .about-hero, .journal-intro, .workshop-list { gap: var(--space-24); }
+}
+
+@media (max-width: 41rem) {
+  .site-header { background: var(--header-background); }
+  .site-header-inner { flex-direction: column; }
+  .site-header nav { width: 100%; }
+  .workshop-hero, .about-hero, .journal-intro, .journal-feature { grid-template-columns: minmax(0, 1fr); }
+  .workshop-hero .editorial-copy { grid-row: 1; }
+  .workshop-photo, .about-portrait { width: min(100%, 30rem); height: clamp(17rem, 78vw, 26rem); justify-self: center; }
+  .workshop-list { grid-template-columns: 1fr; }
+  .workshop-list section:nth-child(n) { padding-block-start: 0; }
+  .projects-hero::before {
+    background: linear-gradient(180deg, #26382b9c, #354a3840 30%, #26382bbf 67%, #24382be5),
+      linear-gradient(90deg, #25382b9e, #273b2e08);
+  }
+  .journal-photo {
+    height: clamp(15rem, 66vw, 23rem);
+    clip-path: none;
+    border-radius: 0 0 46% 0 / 0 0 15% 0;
+  }
+  .journal-copy { padding: var(--space-24) var(--gutter) var(--space-48); }
+  .about-hero .editorial-copy { gap: var(--space-16); }
+}
+
+@media (max-width: 27rem) {
+  .sound-list, .projects-list section { grid-template-columns: 1fr; }
+  .projects-list section { gap: var(--space-8); }
+  .sound-list section:nth-child(2) { padding-block-start: 0; }
+}

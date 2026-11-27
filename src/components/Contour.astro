@@ -1,0 +1,25 @@
+---
+interface Props {
+  shape?: 'coast' | 'bank' | 'journal';
+}
+
+const { shape = 'coast' } = Astro.props;
+---
+
+{shape === 'coast' && (
+  <svg class="hero-edge" viewBox="0 0 960 116" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="edge-fill" d="M0 93C127 98 208 107 327 99C470 90 516 63 633 61C760 59 845 76 960 39V116H0Z" />
+    <path class="edge-line" d="M361 88C479 79 526 53 635 52C758 51 840 67 960 30" />
+    <path class="edge-line edge-line-soft" d="M492 63C553 47 584 44 635 43C756 42 837 58 960 21" />
+  </svg>
+)}
+{shape === 'bank' && (
+  <svg class="footer-edge" viewBox="0 0 960 47" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 37C168 9 266 9 398 14C561 20 720 53 960 18V47H0Z" />
+  </svg>
+)}
+{shape === 'journal' && (
+  <svg class="hero-edge journal-edge" viewBox="0 0 960 60" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="edge-fill" d="M0 26C184 41 259 16 422 21C614 26 760 47 960 23V60H0Z" />
+  </svg>
+)}
