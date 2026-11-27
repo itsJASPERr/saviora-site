@@ -1,0 +1,97 @@
+---
+import '../styles/estudio.css';
+
+const practices = [
+  { name: 'Sonido', description: 'Música y sesiones de escucha.' },
+  { name: 'Oficio', description: 'Instrumentos y objetos hechos a mano.' },
+  { name: 'Sistemas', description: 'Herramientas digitales para equipos.' },
+  { name: 'Regeneración', description: 'Proyectos con comunidades y territorios.' },
+];
+const description = 'Hago música e instrumentos, diseño sistemas digitales y colaboro en proyectos de regeneración.';
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#342239" />
+    <link rel="icon" type="image/svg+xml" href="/dawn.svg" />
+    <title>Saviora Estudio</title>
+  </head>
+  <body id="inicio">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="intro">
+      <header class="site-header frame">
+        <a class="brand" href="#inicio">
+          <svg viewBox="0 0 72 72" aria-hidden="true" focusable="false">
+            <use href="/dawn.svg#dawn" />
+          </svg>
+          Saviora
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="#practicas">Prácticas</a>
+          <a href="#colaboraciones">Colaboraciones</a>
+        </nav>
+      </header>
+      <main id="contenido" tabindex="-1">
+        <section class="hero" aria-labelledby="lema">
+          <img
+            class="hero-photo"
+            src="/anillos-de-madera.webp"
+            alt=""
+            width="627"
+            height="627"
+            fetchpriority="high"
+          />
+          <div class="frame">
+            <div class="hero-copy">
+              <h1 id="lema">Lo vivo <span>toma forma.</span></h1>
+              <p>{description}</p>
+              <a class="hero-link" href="#practicas">
+                Conocé mi trabajo
+                <svg viewBox="0 0 156 8" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <path d="M1 6C50 6 63 1 91 2C111 3 123 5 151 2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        <svg class="hero-edge" viewBox="0 0 960 116" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <path class="edge-fill" d="M0 93C127 98 208 107 327 99C470 90 516 63 633 61C760 59 845 76 960 39V116H0Z" />
+          <path class="edge-line" d="M361 88C479 79 526 53 635 52C758 51 840 67 960 30" />
+          <path class="edge-line edge-line-soft" d="M492 63C553 47 584 44 635 43C756 42 837 58 960 21" />
+        </svg>
+        <section class="practices" id="practicas" tabindex="-1" aria-labelledby="practicas-titulo">
+          <div class="practices-layout frame">
+            <div class="practices-heading">
+              <h2 id="practicas-titulo">Cuatro formas <span>de trabajar</span></h2>
+              <svg class="practice-ripple" viewBox="126 5 299 57" aria-hidden="true" focusable="false">
+                <path d="M129 42c59 0 77-19 128-19s82 8 158-11M129 50c59 0 77-19 128-19s82 8 158-11M129 58c59 0 77-19 128-19s82 8 158-11" />
+                <circle cx="415" cy="12" r="3.7" />
+              </svg>
+            </div>
+            <div class="practices-list">
+              {practices.map(({ name, description }) => (
+                <section>
+                  <h3>{name}</h3>
+                  <p>{description}</p>
+                </section>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="site-footer" id="colaboraciones" tabindex="-1" aria-labelledby="colaboraciones-titulo">
+      <svg class="footer-edge" viewBox="0 0 960 47" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 37C168 9 266 9 398 14C561 20 720 53 960 18V47H0Z" />
+      </svg>
+      <div class="footer-content frame">
+        <h2 id="colaboraciones-titulo">Colaboraciones</h2>
+        <p>Proyectos compartidos entre sonido, oficio y tecnología.</p>
+      </div>
+    </footer>
+  </body>
+</html>
