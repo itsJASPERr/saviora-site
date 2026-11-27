@@ -1,6 +1,8 @@
 ---
 import '../styles/estudio.css';
 
+const assetBase = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const dawn = `${assetBase}dawn.svg`;
 const practices = [
   { name: 'Sonido', description: 'Música y sesiones de escucha.' },
   { name: 'Oficio', description: 'Instrumentos y objetos hechos a mano.' },
@@ -17,7 +19,7 @@ const description = 'Hago música e instrumentos, diseño sistemas digitales y c
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#342239" />
-    <link rel="icon" type="image/svg+xml" href="/dawn.svg" />
+    <link rel="icon" type="image/svg+xml" href={dawn} />
     <title>Saviora Estudio</title>
   </head>
   <body id="inicio">
@@ -26,7 +28,7 @@ const description = 'Hago música e instrumentos, diseño sistemas digitales y c
       <header class="site-header frame">
         <a class="brand" href="#inicio">
           <svg viewBox="0 0 72 72" aria-hidden="true" focusable="false">
-            <use href="/dawn.svg#dawn" />
+            <use href={`${dawn}#dawn`} />
           </svg>
           Saviora
         </a>
@@ -39,7 +41,7 @@ const description = 'Hago música e instrumentos, diseño sistemas digitales y c
         <section class="hero" aria-labelledby="lema">
           <img
             class="hero-photo"
-            src="/anillos-de-madera.webp"
+            src={`${assetBase}anillos-de-madera.webp`}
             alt=""
             width="627"
             height="627"
